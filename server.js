@@ -2,6 +2,7 @@ const express=require('express');
 var app=express(); 
 const hbs=require('hbs');
 const fs=require('fs');
+var port=process.env.PORT || 3000;
 
 hbs.registerPartials(__dirname+'/views/partials');
 hbs.registerHelper('getCurrYear',()=>{
@@ -41,6 +42,6 @@ app.get('/bad',(req,res)=>{
         errorMessage:'This is a bad request'
     });
 })
-app.listen(3000,()=>{
-    console.log('server listening on port 3000');
+app.listen(port,()=>{
+    console.log(`server listening on port ${port}`);
 });
